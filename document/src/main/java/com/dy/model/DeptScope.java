@@ -4,11 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
  * @author dy
- *Ä³Ò»¸ö²¿ÃÅÄÜ¹»·¢ËÍµÄ²¿ÃÅÁĞ±í
+ *Ä³Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½ï¿½ÍµÄ²ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
  */
 @Entity
 @Table(name = "dept_scope")
@@ -26,7 +28,7 @@ public class DeptScope {
 		this.id = id;
 	}
 	/**
-	 * ÉèÖÃµÄ²¿ÃÅ
+	 * è¦è®¾ç½®çš„éƒ¨é—¨id
 	 * @return
 	 */
 	@Column(name = "dept_id")
@@ -37,10 +39,11 @@ public class DeptScope {
 		this.deptId = deptId;
 	}
 	/**
-	 * Ó³ÉäµÄ²¿ÃÅ
+	 * å¯¹åº”çš„éƒ¨é—¨æ˜ å°„
 	 * @return
 	 */
-	@Column(name = "s_dept_id")
+	@ManyToOne
+	@JoinColumn(name = "s_dept_id")
 	public Department getDepartment() {
 		return department;
 	}

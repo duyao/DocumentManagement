@@ -39,7 +39,7 @@ public class Attachment {
 		this.oldName = oldName;
 	}
 	/**
-	 * 附件的新名称，通过uuid获得
+	 * 鏂囦欢鐨勬柊鍚嶅瓧锛岄�氳繃uuid鐢熸垚
 	 * @return
 	 */
 	@Column(name = "new_name")
@@ -69,7 +69,7 @@ public class Attachment {
 	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
-	@ManyToOne//表中有的列，一般不是collection
+	@ManyToOne//锟斤拷锟斤拷锟叫碉拷锟叫ｏ拷一锟姐不锟斤拷collection
 	@JoinColumn(name = "msg_id")
 	public Message getMessage() {
 		return message;

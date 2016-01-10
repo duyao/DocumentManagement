@@ -4,12 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
  * @author dy
- * ÓÃ»§Ë½ÐÅÁ¬½Ó¶ÔÏó
+ * ï¿½Ã»ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
  *
  */
 @Entity
@@ -30,7 +31,7 @@ public class UserMessage {
 		this.id = id;
 	}
 	@ManyToOne
-	@Column(name = "msg_id")
+	@JoinColumn(name = "msg_id")
 	public Message getMessage() {
 		return message;
 	}
@@ -38,7 +39,7 @@ public class UserMessage {
 		this.message = message;
 	}
 	@ManyToOne
-	@Column(name = "user_id")
+	@JoinColumn(name = "user_id")
 	public User getUser() {
 		return user;
 	}
@@ -47,7 +48,7 @@ public class UserMessage {
 	}
 	
 	/**
-	 * ½ÓÊÕ»¹ÊÇ·¢ËÍ
+	 * ï¿½ï¿½ï¿½Õ»ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	public int getType() {
@@ -57,7 +58,7 @@ public class UserMessage {
 		this.type = type;
 	}
 	/**
-	 * ÊÇ·ñÒÑ¶Á
+	 * ï¿½Ç·ï¿½ï¿½Ñ¶ï¿½
 	 * @return
 	 */
 	public int getIsRead() {

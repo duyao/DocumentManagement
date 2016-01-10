@@ -4,7 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name = "user_doc")
@@ -26,17 +28,17 @@ public class UserDocument {
 	}
 
 	@ManyToOne
-	@Column(name = "doc_id")
-	public Document getMessage() {
+	@JoinColumn(name = "doc_id")
+	public Document getDocument() {
 		return document;
 	}
 
-	public void setMessage(Document document) {
+	public void setDocument(Document document) {
 		this.document = document;
 	}
 
 	@ManyToOne
-	@Column(name = "user_id")
+	@JoinColumn(name = "user_id")
 	public User getUser() {
 		return user;
 	}
@@ -46,7 +48,7 @@ public class UserDocument {
 	}
 
 	/**
-	 * ½ÓÊÕ»¹ÊÇ·¢ËÍ
+	 * æ¥æ”¶è¿˜æ˜¯å‘é€
 	 * @return
 	 */
 	public int getType() {
@@ -58,7 +60,7 @@ public class UserDocument {
 	}
 
 	/**
-	 * ÊÇ·ñÒÑ¶Á
+	 * æ˜¯å¦å·²è¯»
 	 * @return
 	 */
 	public int getIsRead() {

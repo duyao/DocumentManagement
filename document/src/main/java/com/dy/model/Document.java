@@ -30,7 +30,7 @@ public class Document {
 	public void setTile(String tile) {
 		this.tile = tile;
 	}
-	//定义数据类型
+	//鏂囦欢鍐呭
 	@Column(name = "content", columnDefinition = "text")
 	public String getContent() {
 		return content;
