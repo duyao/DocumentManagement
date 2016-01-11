@@ -175,4 +175,16 @@ public class BaseDao<T> implements IBaseDao<T> {
 		return findByObj(hql, null);
 	}
 
+	public void addObj(Object object) {
+		sessionFactory.getCurrentSession().save(object);
+	}
+
+	public void updateObj(Object object) {
+		sessionFactory.getCurrentSession().update(object);
+	}
+
+	public void delteObj(Object object) {
+		sessionFactory.getCurrentSession().delete(object);
+	}
+
 }

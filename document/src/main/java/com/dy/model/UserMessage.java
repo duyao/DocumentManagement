@@ -1,6 +1,5 @@
 package com.dy.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +9,7 @@ import javax.persistence.Table;
 
 /**
  * @author dy
- * �û�˽�����Ӷ���
+ * 用户之间的私人信件
  *
  */
 @Entity
@@ -48,7 +47,7 @@ public class UserMessage {
 	}
 	
 	/**
-	 * ���ջ��Ƿ���
+	 * 接收还是发送
 	 * @return
 	 */
 	public int getType() {
@@ -58,7 +57,7 @@ public class UserMessage {
 		this.type = type;
 	}
 	/**
-	 * �Ƿ��Ѷ�
+	 * 是否已读
 	 * @return
 	 */
 	public int getIsRead() {

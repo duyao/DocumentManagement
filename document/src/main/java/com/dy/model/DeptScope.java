@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 /**
  * @author dy
- *ĳһ�������ܹ����͵Ĳ����б�
+ *记录部门与被管理部门的联系
  */
 @Entity
 @Table(name = "dept_scope")

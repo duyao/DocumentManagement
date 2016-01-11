@@ -6,8 +6,11 @@ import com.dy.model.Pager;
 
 public interface IBaseDao<T> {
 	public void add(T t);
+	public void addObj(Object object);
 	public void update(T t);
+	public void updateObj(Object object);
 	public void delte(int id);
+	public void delteObj(Object object);
 	public T load(int id);
 	
 	//获取一组对象，不分页
