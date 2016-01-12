@@ -37,10 +37,9 @@ public class TestDept {
 	public void test01(){
 		Department department = new Department();
 		department.setId(1);
-		department.setName("财务处");
+		department.setName("办公室");
 		departmentDao.add(department);
 	}
-	
 	
 
 }

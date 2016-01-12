@@ -15,6 +15,7 @@ public class User {
 	private String username;
 	private String nickname;
 	private Department department;
+	private int type;
 	
 	@Id
 	@GeneratedValue
@@ -49,6 +50,18 @@ public class User {
 	}
 	public void setDepartment(Department department) {
 		this.department = department;
+	}
+	
+	/**
+	 * 用户类型
+	 * 0是管理员，1是普通用户
+	 * @return
+	 */
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
 	}
 	
 

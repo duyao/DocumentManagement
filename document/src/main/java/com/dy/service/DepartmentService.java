@@ -57,7 +57,7 @@ public class DepartmentService implements IDepartmentService {
 		}
 		//不存在添加
 		ds = new DeptScope();
-		ds.setId(depId);
+		ds.setDeptId(depId);
 		ds.setDepartment(dao.load(sDepId));
 		dao.addObj(ds);
 	}
