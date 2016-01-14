@@ -44,6 +44,7 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 	}
 	
 	public String list(){
+		System.out.println("list");
 		ActionContext.getContext().put("ds", service.listAllDep());
 		return SUCCESS;
 	}

@@ -11,6 +11,7 @@ import javax.servlet.ServletResponse;
 
 import com.dy.model.SystemContext;
 
+
 public class SystemContextFilter implements Filter {
 	private int pageSize;
 
@@ -22,22 +23,26 @@ public class SystemContextFilter implements Filter {
 			throws IOException, ServletException {
 		try {
 			int tmp = pageSize;
+			System.out.println("filter"+pageSize);
 			try {
 				tmp = Integer.parseInt(req.getParameter("pageSize"));
 			} catch (Exception e) {
-				
+				//TODO to solve the null
+				e.printStackTrace();
 			}
 			int pageOffset = 0;
 			try {
 				pageOffset = Integer.parseInt(req.getParameter("pageOffset"));
 			} catch (Exception e) {
-				
+				//TODO
+				e.printStackTrace();
 			}
 			SystemContext.setPageOffset(pageOffset);
 			SystemContext.setPageSize(tmp);
 			chain.doFilter(req, resp);
 
 		} catch (Exception e) {
+			e.printStackTrace();
 		}finally{
 			SystemContext.removePageOffset();
 			SystemContext.removePageSize();
@@ -48,6 +53,7 @@ public class SystemContextFilter implements Filter {
 
 	public void init(FilterConfig cfg) throws ServletException {
 		pageSize = Integer.parseInt(cfg.getInitParameter("pageSize"));
+		System.out.println("init+"+pageSize);
 	}
 
 }
