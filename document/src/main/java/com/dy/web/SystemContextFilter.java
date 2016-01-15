@@ -22,27 +22,29 @@ public class SystemContextFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
 		try {
+
+			
 			int tmp = pageSize;
-			System.out.println("filter"+pageSize);
+//			System.out.println("filter"+pageSize);
 			try {
 				tmp = Integer.parseInt(req.getParameter("pageSize"));
 			} catch (Exception e) {
-				//TODO to solve the null
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 			int pageOffset = 0;
 			try {
 				pageOffset = Integer.parseInt(req.getParameter("pageOffset"));
 			} catch (Exception e) {
-				//TODO
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
+//			System.out.println(pageOffset);
+//			System.out.println(tmp);
 			SystemContext.setPageOffset(pageOffset);
 			SystemContext.setPageSize(tmp);
 			chain.doFilter(req, resp);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}finally{
 			SystemContext.removePageOffset();
 			SystemContext.removePageSize();
