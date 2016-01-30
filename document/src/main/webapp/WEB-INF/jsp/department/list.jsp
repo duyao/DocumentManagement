@@ -27,7 +27,7 @@
 						<ul class="nav nav-pills">
 							<li><a href="department_updateInput.action?id=${id}">更新</a></li>
 							<li><a href="department_delete.action?id=${id}">删除</a></li>
-							<li><a href="department_addDeptScope.action?id=${id}">设置可发文部门</a></li>
+							<li><a href="department_setDeptScope.action?id=${id}">设置可发文部门</a></li>
 						</ul>
 				</tr>
 			</s:iterator>

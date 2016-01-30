@@ -87,7 +87,8 @@ public class DepartmentService implements IDepartmentService {
 
 	public List<Department> listDepScopeDep(int depId) {
 		//自己和自己关联查出所有
-		String hql = "select dep from DeptScope ds left join ds.department dep where ds.id = ?";
+		//因为ds中有dept这个属性
+		String hql = "select dep from DeptScope ds left join ds.department dep where ds.deptId = ?";
 		return dao.list(hql, depId);
 	}
 

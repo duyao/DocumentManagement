@@ -1,5 +1,7 @@
 package com.dy.action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
@@ -74,7 +76,9 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 	}
 	
 	public String show(){
-		ActionContext.getContext().put("ds",service.listDepScopeDep(department.getId()));
+		List<Department> list= service.listDepScopeDep(department.getId());
+		ActionContext.getContext().put("ds",list);
+		System.out.println(list.size());
 		System.out.println(department.getName());
 		return SUCCESS;
 	}
@@ -91,10 +95,16 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 	}
 	
 	public String update(){
-		System.out.println(department.getName());
-		service.update(service.load(department.getId()));
+		//先载入，再修改
+		Department dd = service.load(department.getId());
+		dd.setName(department.getName());
+		service.update(dd);
 		ActionUtil.setURL("department_list.action");
 		return ActionUtil.REDIRECT;
+	}
+	
+	public String setDeptScope(){
+		return SUCCESS;
 	}
 
 }
