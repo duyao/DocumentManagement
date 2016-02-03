@@ -13,7 +13,7 @@
 	<table class="table table-bordered table-hover">
 		<%-- <s:debug></s:debug> --%>
 			<tr><td>部门id</td><td>${department.id }</td></tr>
-			<tr><td>部门名称</td><td>${department.name },${dep.name },#department.name</td></tr>
+			<tr><td>部门名称</td><td>${department.name }</td></tr>
 			<tr><td colspan="2">可发文部门</td></tr>
 			<tr>
 			  <td colspan="2">

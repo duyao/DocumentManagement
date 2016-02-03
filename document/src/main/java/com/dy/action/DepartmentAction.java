@@ -22,7 +22,9 @@ import com.opensymphony.xwork2.ModelDriven;
 public class DepartmentAction extends ActionSupport implements ModelDriven<Department>{
 	private IDepartmentService service;
 	private Department department;
-	
+	//用户设置的发文部门编号
+	//private int[] sDepIds;
+	private int sDepIds;
 	public IDepartmentService getService() {
 		return service;
 	}
@@ -39,6 +41,15 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
+	
+	public int getsDepIds() {
+		return sDepIds;
+	}
+
+	public void setsDepIds(int sDepIds) {
+		this.sDepIds = sDepIds;
+	}
+
 	
 	public Department getModel() {
 		if(department == null){
@@ -76,6 +87,7 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 	}
 	
 	public String show(){
+		department = service.load(department.getId());
 		List<Department> list= service.listDepScopeDep(department.getId());
 		ActionContext.getContext().put("ds",list);
 		System.out.println(list.size());
@@ -103,8 +115,30 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		return ActionUtil.REDIRECT;
 	}
 	
-	public String setDeptScope(){
+	public String setDeptScopeInput(){
+		//设置发文部门，获取内容
+		//1.该部门的信息
+		//2.所有部门名称
+		//3.该部门已经设置的已经发文的部门
+		department = service.load(department.getId());
+		List<Department> deps = service.listAllDep();
+		deps.remove(department);
+		ActionContext.getContext().put("ds", deps);
+		ActionContext.getContext().put("checked_ds", service.listDepScopeDepId(department.getId()));
 		return SUCCESS;
 	}
+	
+	public String setDeptScope(){
+		System.out.println("sdepids"+sDepIds);
+//		for(int id : sDepIds){
+//			System.out.println(id);
+//		}
+//		service.addScopeDeps(department.getId(), sDepIds);
+		ActionUtil.setURL("department_setDeptScopeInput.action?id="+department.getId());
+		return ActionUtil.REDIRECT;
+	}
+
+	
+	
 
 }

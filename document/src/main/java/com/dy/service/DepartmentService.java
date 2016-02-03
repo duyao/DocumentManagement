@@ -1,5 +1,6 @@
 package com.dy.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -63,7 +64,9 @@ public class DepartmentService implements IDepartmentService {
 	}
 
 	public void addScopeDeps(int dep, int[] sDepIds) {
-		// TODO not sure
+		// TODO
+		//1.找到原来的设置的发文部门
+		//2.进行比较，新出先的添加，没有的删除
 		for (int sid : sDepIds) {
 			addScopeDep(dep, sid);
 		}
@@ -95,7 +98,12 @@ public class DepartmentService implements IDepartmentService {
 	public List<Integer> listDepScopeDepId(int depId) {
 		//TODO 
 		//自己和自己关联查出所有
-		return null;
+		List<Department> deps = listDepScopeDep(depId);
+		List<Integer> depIds = new ArrayList<Integer>();
+		for(Department dep : deps){
+			depIds.add(dep.getId());
+		}
+		return depIds;
 	}
 
 }
